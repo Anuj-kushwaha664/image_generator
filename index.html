@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Image Generator</title>
+    <link rel="icon" href="src/image/icons8-robot-32.png" type="image/x-icon" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  </head>
+  <body>
+    <div class="page_container">
+      <!-- ------------- Alert for Signup  begin --------- -->
+      <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+        <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+          <path
+            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"
+          />
+        </symbol>
+        <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+          <path
+            d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"
+          />
+        </symbol>
+        <symbol
+          id="exclamation-triangle-fill"
+          fill="currentColor"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+          />
+        </symbol>
+      </svg>
+
+      <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        <svg
+          class="bi flex-shrink-0 me-2"
+          width="24"
+          height="24"
+          role="img"
+          aria-label="Info:"
+        >
+          <use xlink:href="#info-fill" />
+        </svg>
+
+        <strong>Hey<span>👋</span> </strong> Please Signup for generating high
+        quality images at free of cost.
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      </div>
+
+      <!-- -------------------- Alert for singup end ----------------------->
+
+      <!-- -------------------- Navbar begin ---------------------------- -->
+       <div class="navbar_main_container">
+          <div class="logo">
+            <i class="fa-solid fa-robot"></i>&nbsp; Image Generator
+          </div>
+        <div class="navbar_links">
+          <a href="" class="about">About</a>
+          <a href="" class="contact">Contact</a>
+          
+            <a href="sign_in.html" class="button" id="login_btn">Login</a>
+            <a href="sign_up.html" class="button" id="signup_btn">Signup</a>
+          
+        </div>
+       </div>
+      <!-- -------------------- Navbar end ---------------------------- -->
+
+      <!--  ----------------------- hero section Begin -------------- -->
+
+      <!-- <div class="logo">
+        <i class="fa-solid fa-robot"></i>&nbsp; Image Generator
+      </div> -->
+
+      <div class="hero_main_container">
+        <div class="boxes">
+          <img src="src/image/image_1.webp" alt="" />
+        </div>
+        <div class="boxes">
+          <img src="src/image/image_5.webp" alt="" />
+        </div>
+        <div class="boxes">
+          <img src="src/image/image_3.webp" alt="" />
+        </div>
+        <div class="boxes">
+          <img src="src/image/image_4.webp" alt="" />
+        </div>
+        <div class="boxes">
+          <img src="src/image/image_2.webp" alt="" />
+        </div>
+        <div class="boxes">
+          <img src="src/image/image_6.webp" alt="" />
+        </div>
+        <div class="boxes">
+          <img src="src/image/image_7.webp" alt="" />
+        </div>
+        <div class="boxes">
+          <img src="src/image/image_8.webp" alt="" />
+        </div>
+        <div class="boxes">
+          <img src="src/image/image_9.webp" alt="" />
+        </div>
+        <div class="boxes">
+          <img src="src/image/image_10.png" alt="" />
+        </div>
+
+        <div class="auth_main_container">
+          <div class="auth_center_container">
+            <div class="auth_content">
+              Hey <span>👋</span> ! Yes You, <br />
+              🚀Start Generating you own images from promt at free of cost
+            </div>
+            <br />
+            <div>
+              <a href="sign_in.html" class="button" id="login_btn3">Login</a>
+              <a href="sign_up.html" class="button" id="signup_btn3">Signup</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--  ----------------------- hero section End -------------- -->
+
+      <!-- ---------------------- How to use section begin ---------------------- -->
+
+      <h1 class="faq">How to make AI-generated images</h1>
+
+      <div class="use_container">
+        <div class="use_content">
+          <ol>
+            <li>Open the online image generator website.</li>
+            <li>Create an account or log in if you already have one.</li>
+            <li>Navigate to the image generation section.</li>
+            <li>Write a prompt describing the image you want to generate.</li>
+            <li>
+              Click on the "Generate" button to start the image generation
+              process.
+            </li>
+            <li>
+              Wait for the generator to process your request and create the
+              image.
+            </li>
+            <li>
+              Once the image is generated, you can download it or use it as
+              needed.
+            </li>
+          </ol>
+        </div>
+
+        <div class="use_image">
+          <img src="src/image/signup3.jpg" alt="" />
+        </div>
+      </div>
+
+      <!-- ---------------------- How to use section end ---------------------- -->
+
+      <!-- ------------------------- FAQ Section begin --------------->
+
+      <h1 class="faq">Frequently asked question</h1>
+
+      <div class="faq_main_container">
+        <div class="faq_container">
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
+                  What is a AI Image Generator ?
+                </button>
+              </h2>
+              <div
+                id="collapseOne"
+                class="accordion-collapse collapse show"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  AI Image Generator is an innovative tool using advanced AI
+                  techniques to generate image from a text prompt, just write what
+                  you want to generate and our AI will create it.
+                </div>
+              </div>
+            </div>
+  
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo"
+                  aria-expanded="false"
+                  aria-controls="collapseTwo"
+                >
+                  How does AI Generate Images ?
+                </button>
+              </h2>
+              <div
+                id="collapseTwo"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  AI Image Generator creates images with vibrant colors and high
+                  quality right out of the box. Our machine learning model scans
+                  millions of internet images and associated text, enabling the AI
+                  to predict and create images tailored to your provided text.
+                  Experience next-level content creation with our AI Image
+                  Generation technology.
+                </div>
+              </div>
+            </div>
+  
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree"
+                  aria-expanded="false"
+                  aria-controls="collapseThree"
+                >
+                  Does the Image Generator Create Unique Images?
+                </button>
+              </h2>
+              <div
+                id="collapseThree"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  Absolutely! Each image produced by the AI image generator is
+                  one-of-a-kind. Save time by skipping the design process—simply
+                  input your description, and witness your vision come to life in
+                  vibrant images. The only limit to generating images is your own
+                  imagination!
+                </div>
+              </div>
+            </div>
+  
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapse4"
+                  aria-expanded="false"
+                  aria-controls="collapseThree"
+                >
+                  Is the Image Generator Free?
+                </button>
+              </h2>
+              <div
+                id="collapse4"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  Yes, Pixlr AI image generator provides a complimentary tier for
+                  you to explore our exceptional text-to-image tool. As a new
+                  user, enjoy the freedom of generating 20 images using 20
+                  credits. Additionally, take advantage of our free trial to
+                  experience 250 credits free of charge. Bring your imagination to
+                  life swiftly. If you require assistance, simply reach out to us.
+                </div>
+              </div>
+            </div>
+  
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapse5"
+                  aria-expanded="false"
+                  aria-controls="collapseThree"
+                >
+                  Is AI Image Generator legal?
+                </button>
+              </h2>
+              <div
+                id="collapse5"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  While AI-generated artwork itself cannot be copyrighted or
+                  attributed to a specific individual, it's important to note that
+                  the artwork used to train the generator algorithms is often
+                  copyrighted, owned, or credited to human artists and creators.
+                  Consequently, there is a potential for copyright infringements
+                  when producing AI-generated art.
+                </div>
+              </div>
+            </div>
+  
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapse6"
+                  aria-expanded="false"
+                  aria-controls="collapseThree"
+                >
+                  Why use a AI Image Generator?
+                </button>
+              </h2>
+              <div
+                id="collapse6"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  There are plenty of benefits to using an AI Text to Image
+                  generator. Bring your ideas to life instantly without having to
+                  spend time designing from scratch. No more creative blocks as
+                  you start inspired and easily create stunning visuals. Use your
+                  AI-generated photos as eye-catching web content, quirky social
+                  media posts, or winning design proposals. Convert text to image
+                  using an AI generator—it's fun, fast, and free!
+                </div>
+              </div>
+            </div>
+  
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapse7"
+                  aria-expanded="false"
+                  aria-controls="collapseThree"
+                >
+                  Is it safe to us the Image Generator?
+                </button>
+              </h2>
+              <div
+                id="collapse7"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  Our free AI art generator will kickstart your concepts and let
+                  artful inspiration flow. To help you use Text to Image safely
+                  and responsibly, we’ve put layers of safety measures in place,
+                  including automated reviews of input prompts for terms that
+                  might generate inappropriate content. If you do come across
+                  unsafe content, let us know: you can report it right in Pixlr.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="faq_image">
+          <img src="src/image/faq_girl2.avif" alt="">
+        </div> -->
+      </div>
+     
+      <!-- ------------------------- FAQ Section end --------------->
+
+      <!--------------------------------- footer section begin -------------- -->
+
+      <div class="footer_container">
+        <div class="footer_logo">
+          <i class="fa-solid fa-robot"></i>&nbsp; Image Generator
+        </div>
+        <div class="footer_social">
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-x-twitter"></i>
+          <i class="fa-brands fa-youtube"></i>
+          <i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-linkedin"></i>
+        </div>
+      </div>
+
+      <!--------------------------------- footer section end -------------- -->
+    </div>
+
+    <!-- ---------------------- singup form begin --------  -->
+
+    <div class="signup_main_container hidden">
+      <div class="signup_image">
+        <img src="src/image/customer-girl.jpeg" alt="" />
+      </div>
+      <div class="signup_form">
+        <section id="signup">
+          <form id="signUpForm" method="post">
+            <h2>Hi there!</h2>
+            <p>Welcome to Image Generator, So Exited to see you</p>
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              required
+            />
+            <input
+              type="phone"
+              name="phone"
+              placeholder="Your phone number"
+              required
+            />
+            <input
+              type="password"
+              name="password"
+              placeholder="Your password"
+              required
+            />
+            <input
+              type="password"
+              name="confirm_password"
+              placeholder="Confirm password"
+              required
+            />
+            <div>
+              <span>If Already have an Account </span>
+              <a href="sign_in.html" id="login_btn2">SignIN</a>
+            </div>
+            <br />
+            <input type="submit" value="SignUp" />
+          </form>
+        </section>
+        <div class="signup_close">
+          <i class="fa-solid fa-xmark xmark"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---------------------- singup form end --------  -->
+
+    <!-- ----------------------- login begin ------------------------- -->
+
+    <div class="login_main_container hidden">
+      <div class="login_image">
+        <img src="src/image/signup2.jpg" alt="" />
+      </div>
+      <div class="login_form">
+        <section id="login">
+          <h2>Hi there!</h2>
+          <p>Welcome to Image Generator, So Exited to see you</p>
+
+          <form id="signin-form">
+            <input
+              type="text"
+              id="email_signin"
+              name="email"
+              placeholder="Your email"
+            />
+            <input
+              type="password"
+              id="password_signin"
+              name="password"
+              placeholder="Your password"
+            />
+            <div>
+              <span>If don't have an Account </span>
+              <a href="sign_in.html" id="signup_btn2">Signup</a>
+            </div>
+            <br />
+
+            <input type="submit" value="Sign-in" />
+          </form>
+        </section>
+        <div class="login_close">
+          <i class="fa-solid fa-xmark xmark-login"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- ----------------------- login end ------------------------- -->
+
+
+    <!-- ---------------------------- contact page begin -------------------  -->
+    <div class="login_main_container hidden" id="my-detail">
+      <div class="login_image">
+        <img src="src/image/faq_girl.avif" alt="" />
+      </div>
+
+      <div class="login_form">
+        <div class="my-detail">
+          <div class="detail_logo">
+            <h1>C  <i style="color: orange;" class="fa-regular fa-compass fa-spin"></i> N T A C T</h1>
+            <div>It's our pleasure to connect with you.</div>
+          </div>
+
+          <div class="detail_content">
+            <p><i class="fas fa-map-marker-alt"></i> <span>Indore, India</span></p>
+            <p><i class="fas fa-mobile-alt"></i> <span>8871238039</span></p>
+            <p><i class="fas fa-envelope"></i> <span>Anujkushwaha664@gmail.com</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail_close">
+        <i class="fa-solid fa-xmark xmark-login"></i>
+      </div>
+    </div>
+
+    <!-- ---------------------------- contact page end -------------------  -->
+
+    <!-- ---------------------------- about page begin -------------------  -->
+    <div class="about_main_container hidden" id="my-about">
+      <div class="about_image">
+        <img src="src/image/about3.jpg" alt="" />
+      </div>
+
+      <div class="about_form">
+        <div class="my-detail">
+          <div class="detail_logo">
+            <h1>A  B  <i style="color: orange;" class="fa-regular fa-compass fa-spin"></i> U  T</h1>
+            <div>It's our pleasure to connect with you.</div>
+          </div>
+
+          <div class="detail_content">
+              <div class="about_div">
+                It's free to test out the AI Image generator and it makes creating your own images super easy. Just write a description of the image you'd like to generate and watch the text to image transformation happen in seconds.
+              </div>
+              <div class="about_div">
+                So simple to get the perfect images or create stunning visuals with our AI image generator. Dream it, and use text to image online to visualize it. Easily create different AI images for products, characters, and portraits at your fingertips even if it doesn't exist yet.
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <div class="about_close">
+        <i class="fa-solid fa-xmark xmark-login"></i>
+      </div>
+    </div>
+
+    <!-- ---------------------------- about page end -------------------  -->
+
+
+
+     <!---------------------- loader begin ---------------- -->
+
+     <div class="loader" id="loader" style="display: none;">
+      <i class="fa-solid fa-spinner fa-spin"></i> Loading...
+    </div>
+
+    <!----------------- loader end ----------------------------  -->
+    
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/auth.js"></script>
+
+    <script>
+      let signup_btn = document.querySelector("#signup_btn");
+      let signup_btn2 = document.querySelector("#signup_btn2");
+      let signup_btn3 = document.querySelector("#signup_btn3");
+      let signup_main_container = document.querySelector(
+        ".signup_main_container"
+      );
+      let page_container = document.querySelector(".page_container");
+      let xmark = document.querySelector(".xmark");
+      let login_btn = document.querySelector("#login_btn");
+      let login_btn2 = document.querySelector("#login_btn2");
+      let login_btn3 = document.querySelector("#login_btn3");
+      let login_main_container = document.querySelector(
+        ".login_main_container"
+      );
+      let xmark_login = document.querySelector(".xmark-login");
+
+      console.log(login_btn);
+
+      // signup code
+      signup_btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        signup_main_container.classList.toggle("hidden");
+        page_container.classList.toggle("blur");
+      });
+      xmark.addEventListener("click", (e) => {
+        e.preventDefault();
+        signup_main_container.classList.toggle("hidden");
+        page_container.classList.toggle("blur");
+      });
+
+      signup_btn2.addEventListener("click", (e) => {
+        e.preventDefault();
+        login_main_container.classList.toggle("hidden");
+        signup_main_container.classList.toggle("hidden");
+        // page_container.classList.toggle('blur');
+      });
+
+      signup_btn3.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        // login_main_container.classList.toggle("hidden");
+        signup_main_container.classList.toggle("hidden");
+        page_container.classList.toggle('blur');
+      });
+
+      console.log(login_main_container);
+      console.log(xmark_login);
+
+      // Login code
+      if (login_btn && login_main_container && xmark_login) {
+        login_btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+          login_main_container.classList.toggle("hidden");
+          page_container.classList.toggle("blur");
+        });
+        xmark_login.addEventListener("click", (e) => {
+          e.preventDefault();
+          login_main_container.classList.toggle("hidden");
+          page_container.classList.toggle("blur");
+        });
+      }
+
+      if (login_btn2 && login_main_container && xmark_login) {
+        login_btn2.addEventListener("click", (e) => {
+          e.preventDefault();
+          signup_main_container.classList.toggle("hidden");
+          login_main_container.classList.toggle("hidden");
+          // page_container.classList.toggle('blur');
+        });
+      }
+
+      if (login_btn3 && login_main_container && xmark_login) {
+        login_btn3.addEventListener("click", (e) => {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+          // signup_main_container.classList.toggle("hidden");
+          login_main_container.classList.toggle("hidden");
+          page_container.classList.toggle('blur');
+        });
+      }
+
+      let contact_btn = document.querySelector('.contact'); 
+      let detail_btn = document.querySelector("#my-detail");
+      let detail_close = document.querySelector(".detail_close")
+       // signup code
+       contact_btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        detail_btn.classList.toggle("hidden");
+        page_container.classList.toggle("blur");
+      });
+      detail_close.addEventListener("click", (e) => {
+        e.preventDefault();
+        detail_btn.classList.toggle("hidden");
+        page_container.classList.toggle("blur");
+      });
+
+
+      let about_btn = document.querySelector('.about'); 
+      let about_main_container = document.querySelector("#my-about");
+      let about_close = document.querySelector(".about_close")
+       // signup code
+       about_btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        about_main_container.classList.toggle("hidden");
+        page_container.classList.toggle("blur");
+      });
+      about_close.addEventListener("click", (e) => {
+        e.preventDefault();
+        about_main_container.classList.toggle("hidden");
+        page_container.classList.toggle("blur");
+      });
+    </script>
+
+    <!-- ---------------------- signin code  -->
+
+    <script>
+
+      // Replace with your Google Apps Script web app URL
+
+      document.getElementById("signin-form")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault();
+
+          let loader = document.querySelector("#loader");
+        loader.style.display = 'block'; // Show loader
+          console.log(loader);
+          
+          const email = document.getElementById("email_signin").value;
+          const password = document.getElementById("password_signin").value;
+
+          try {
+            const response = await fetch(scriptURL);
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+
+            const data = await response.json();
+            let isValidUser = false;
+
+            // Loop through the data to find a matching user
+            for (let i = 1; i < data.length; i++) {
+              // Skip header row
+              if (data[i][1] === email && data[i][3] === password) {
+                isValidUser = true;
+                break;
+              }
+            }
+
+            if (isValidUser) {
+              // alert("Sign-in successful");
+              console.log("stored successfully");
+              localStorage.setItem("emailImageGenerator", email);
+              window.location.href = 'imageGenerator.html';
+            } else {
+              alert("Invalid email or password");
+            }
+          } catch (error) {
+            console.error("Error fetching data:", error);
+            alert(
+              "An error occurred while trying to sign in. Please try again later."
+            );
+          }
+
+          loader.style.display = 'none'; // Hide loader
+
+        });
+    </script>
+  </body>
+</html>

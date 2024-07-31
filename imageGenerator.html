@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet"
+    />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="src/imageGenerator.css" />
+  </head>
+  <body>
+    <div class="logo_Container">
+      <div class="logo">
+        <i class="fa-solid fa-robot "></i>&nbsp; Image Generator
+      </div>
+    </div>
+
+    <div class="ai_container">
+      <div class="ai_main_container">
+        <div class="prompt pos1">
+          <div class="message">Demo : Image of cute princess</div>
+          <div class="image">
+            <img src="src/image/prompt_img.webp" alt="" />
+            <a href="src/image/prompt_img.webp" class="demo_download" download="demo_image"  onclick="download()" ><i class="fa-solid fa-file-arrow-down"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="ai_input">
+        <textarea
+          class="model-input-text-input"
+          placeholder="Enter your prompt"
+          name="text"
+        ></textarea>
+        <i class="fa-solid fa-paper-plane button" id="modelSubmitButton"></i>
+      </div>
+    </div>
+
+    <!---------------------- loader begin ---------------- -->
+
+    <div class="loader" id="loader" style="display: none;">
+      <i class="fa-solid fa-spinner fa-spin"></i> Loading...
+    </div>
+
+    <!----------------- loader end ----------------------------  -->
+    
+      
+    <!-- ------------------------------- Displaying previously searched images start ------------------------------------- -->
+    <script>
+      let _next = 1;
+
+   
+    // Step 2: Fetch the array of objects from local storage
+    let array = localStorage.getItem("emailImageGenerator");
+    if(array==null){
+      let body = document.querySelector("body");
+      console.log(body);
+      body.classList.toggle("hidden");
+    }else{
+    console.log(array);
+    let storedArray = localStorage.getItem(array);
+
+    if (storedArray) {
+      // Convert the JSON string back to an array of objects
+      storedArray = JSON.parse(storedArray);
+      console.log("Fetched array from local storage:", storedArray);
+
+      for(let ele of storedArray){
+        
+        const ai_main_container = document.querySelector(`.ai_main_container`);
+        console.log(ai_main_container);
+
+        const promptDiv = document.createElement("div");
+        promptDiv.className = "prompt";
+        promptDiv.classList.add(`.pos${_next+1}`);
+
+        const messageDiv = document.createElement("div");
+        messageDiv.className = "message";
+        messageDiv.textContent = ele.prompt;
+
+        const imageDiv = document.createElement("div");
+        imageDiv.className = "image";
+
+        const imga = document.createElement("img");
+        imga.src = ele.src;
+        imga.alt = "";
+
+        const a = document.createElement("a");
+        a.href = ele.src;
+        a.download = "anuj_image";
+
+        const i = document.createElement("i");
+        i.classList.add('fa-solid');
+        i.classList.add('fa-file-arrow-down');
+        a.appendChild(i);
+
+        imageDiv.appendChild(imga);
+        imageDiv.appendChild(a);
+        promptDiv.appendChild(messageDiv);
+        promptDiv.appendChild(imageDiv);
+        ai_main_container.appendChild(promptDiv);
+
+
+          window.scrollTo({  top: document.body.scrollHeight, behavior: "smooth" });
+            _next++;
+      }
+
+    } else {
+      
+        let arr = [];
+        // Convert the array to a JSON string and store it in local storage
+        localStorage.setItem(array, JSON.stringify(arr));
+
+      console.log("No data found in local storage.");
+    }
+
+
+  
+      let input = document.querySelector(".model-input-text-input");
+      let submit_icon = document.querySelector("#modelSubmitButton");
+      let loader = document.querySelector("#loader");
+
+      // let image = document.querySelector('.placeholder-image');
+
+      let token = "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";
+
+      async function query() {
+        submit_icon.classList.toggle('rotate');
+        loader.style.display = 'block'; // Show loader
+
+
+        let option = {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+          method: "POST",
+          body: JSON.stringify({ inputs: input.value }),
+        };
+
+        const response = await fetch(
+          "https://api-inference.huggingface.co/models/runwayml/stable-diffusion-v1-5",
+          option
+        );
+        const result = await response.blob();
+
+        // ----------------- creating prompt div in which image and prompt will be displayed
+        const ai_main_container = document.querySelector(`.ai_main_container`);
+        console.log(ai_main_container);
+
+        const promptDiv = document.createElement("div");
+        promptDiv.className = "prompt";
+        promptDiv.classList.add(`.pos${_next + 1}`);
+
+        const messageDiv = document.createElement("div");
+        messageDiv.className = "message";
+        messageDiv.textContent = input.value;
+
+        const imageDiv = document.createElement("div");
+        imageDiv.className = "image";
+
+        const imga = document.createElement("img");
+        imga.src = URL.createObjectURL(result);
+
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(result);
+        a.download = "anuj_image";
+
+        const i = document.createElement("i");
+        i.classList.add('fa-solid');
+        i.classList.add('fa-file-arrow-down');
+        a.appendChild(i);
+
+        imageDiv.appendChild(imga);
+        imageDiv.appendChild(a);
+        promptDiv.appendChild(messageDiv);
+        promptDiv.appendChild(imageDiv);
+        ai_main_container.appendChild(promptDiv);
+
+        window.scrollTo({
+          top: document.body.scrollHeight,
+          behavior: "smooth",
+        });
+        _next++;
+
+        let img = URL.createObjectURL(result);
+
+        //------------------------------------------- storing image to local storage and fetching
+
+        let storedArray2 = localStorage.getItem(array);
+        storedArray2 = JSON.parse(storedArray2);
+        console.log("storedarray2" ,storedArray2);
+        
+        let input_value = input.value;
+
+        // Step 3: Update the array of objects
+        // if (storedArray2) {
+           // Convert image to Base64
+             const reader = new FileReader();
+                reader.onloadend = () => {
+                    const base64data = reader.result;
+
+                    console.log("printing");
+                    console.log("input", input_value);
+                    console.log("src", base64data);
+                    // Store image in local storage
+                    // localStorage.setItem('storedImage', base64data);
+                    storedArray2.push({ prompt: input_value, src: base64data });
+                    // Display the image
+                    // imageElement.src = base64data;
+                    localStorage.setItem(array, JSON.stringify(storedArray2));
+                };
+                reader.readAsDataURL(result);
+          // Add a new object to the array
+
+          // Convert the updated array to a JSON string and store it back in local storage
+        // }
+
+      
+               
+                loader.style.display = 'none'; // Hide loader
+                input.value = "";
+                submit_icon.classList.toggle('rotate');
+        };
+
+
+
+      submit_icon.addEventListener("click", query);
+    
+
+    <!-- save image to local storage -->
+
+     function download(){
+        const demo_download = document.querySelector('.demo_download');
+        demo_download.download = "demo_download";
+        demo_download.click();
+     }
+    }
+  </script>
+
+    <!-- save image to local storage -->
+
+
+  </body>
+</html>
